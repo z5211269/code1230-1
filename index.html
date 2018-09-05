@@ -53,7 +53,7 @@ map.on('load', function() {
          
 
             // Get fill-extrusion-height from the source 'height' property.
-            'fill-extrusion-height':{ 'low income',
+            'fill-extrusion-height':{ 'property':'low income',
             "stops": [
                 [0, 0],
                 [7, 1000],
@@ -71,6 +71,81 @@ map.on('load', function() {
             // Make extrusions slightly opaque for see through indoor walls.
             'fill-extrusion-opacity': 0.9
         }
+    });
+});
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>2016 DNGTS</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='c='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></s></script>
+    <script src='./'./data.js'></'></script>
+    <link href='f='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel rel='stylesheet' />
+    <style>
+        body { margin:2; padding:0; }
+        #map { position:absolute; top:0px; left:0px; bottom:0px; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+t>
+mapboxgl.accessToken =en = '= 'pk.eyJ1Ijo1IjoibWFkZWxlaW5lam9oYW5zb24iLCJhIjoiY2lzczduYzJ4MDZrODJucGh0Mm1xbmVxNCJ9.i7q4iT8FFgh_y5v4we5UhQ';
+var map = new ew mapboxgl.Map({
+ ({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/light-v9', // stylesheet location
+    center: [151.004105, -33.813002], // starting position [lng, lat]
+    pitch: 45,
+    bearing: -17.6,
+    zoom: 9 // starting zoom
+});
+);
+map.on('lo('load', function() {
+       map.addLayer({
+ ({
+        "id": "data",
+        "type": "fill-extrusion",
+        "source": {
+        	'type': 'geojson',
+        	'data': data
+        },
+           'paint': {
+                'fill-extrusion-color' : {
+                    'property': 'p_tot',
+                    "stops":[
+                    	[0, '#FFB089'],
+                        [250, '#E86828'],
+                        [436, '#DF2525'],
+                        [835, '#831243'],
+                        [1160, '#520743'],
+                        [2428, '#631A7D'],
+                        [10000, '#4A0662']
+                    ]
+                    
+                },
+                'fill-extrusion-height' : {
+                    'property': 'dngts_tot',
+                    "stops":[
+                    	[0, 0],
+                    	[10, 1000],
+                        [20, 2000],
+                        [30, 3000],
+                        [50, 6000],
+                        [200,20000],
+                        [380,38000]
+                    ]
+                },
+                 'fill-extrusion-opacity': 0.9
+            }
     });
 });
 </script>
