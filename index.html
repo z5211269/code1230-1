@@ -40,16 +40,35 @@ map.on('load', function() {
             // https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions
 
             // Get the fill-extrusion-color from the source 'color' property.
-            'fill-extrusion-color': ['get', 'color'],
+            'fill-extrusion-color': 'property':'bangzhu123',
+            "stops": [
+                [0, 'pinck'],
+                [7, 'blue'],
+                [21, 'green'],
+                [79, 'yellow'],
+                [164, 'red']
+                ]
+            
+         
+         
 
             // Get fill-extrusion-height from the source 'height' property.
-            'fill-extrusion-height': ['get', 'height'],
+            'fill-extrusion-height': 'low income',
+            "stops": [
+                [0, 0],
+                [7, 1000],
+                [19, 2000],
+                [44, 3000],
+                [105, 4000],
+                [198, 5000],
+                ]
+            
 
             // Get fill-extrusion-base from the source 'base_height' property.
-            'fill-extrusion-base': ['get', 'base_height'],
+            //'fill-extrusion-base': ['get', 'base_height'],
 
             // Make extrusions slightly opaque for see through indoor walls.
-            'fill-extrusion-opacity': 0.5
+            'fill-extrusion-opacity': 0.9
         }
     });
 });
